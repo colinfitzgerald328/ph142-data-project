@@ -1,0 +1,79 @@
+---
+title: 'PH142 Data Project'
+author: "Colin FitzGerald, Natalie Miramontes, Quinn Dahl, Amanda Tanaka, Celina Alnakib"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: pdf_document
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(readr)
+library(ggplot2)
+library(broom)
+library(dplyr)
+```
+
+1. [2 marks] What is the problem your are addressing with these data? State the question you are trying
+to answer and let us know what type of question this is in terms of the PPDAC framework.
+
+# answer here
+
+
+2. [2 marks] What is the target population for your project? Why was this target chosen i.e., what was
+your rationale for wanting to answer this question in this specific population?
+
+# answer here 
+
+3. [2 marks] What is the sampling frame used to collect the data you are using? Describe why you think
+this sampling strategy is appropriate for your question. To what group(s) would you feel comfortable
+generalizing the findings of your study and why.
+
+# answer here
+
+
+4. [2 marks] Write a brief description (1-4 sentences) of the source and contents of your dataset. Provide
+a URL to the original data source if applicable. If not (e.g., the data came from your internship),
+provide 1-2 sentences saying where the data came from. If you completed a web form to access the
+data and selected a subset, describe these steps (including any options you selected) and the date you
+accessed the data.
+
+# answer here 
+
+
+5. [1 mark] Write code below to import your data into R. Assign your dataset to an object.
+```{r, message=FALSE}
+obesity_data <- read_csv("ObesityDataSet_raw_and_data_sinthetic.csv")
+```
+
+6. [3 marks] Use code in R to answer the following questions:
+i) What are the dimensions of the dataset?
+
+```{r}
+dim(obesity_data)
+```
+
+The dimensions of the dataset are 2111 rows by 17 columns. 
+
+
+ii) Provide a list of variable names.
+
+```{r}
+spec(obesity_data)
+```
+
+
+iii) Print the first six rows of the dataset.
+
+```{r}
+head(obesity_data)
+```
+
+
+7. [4 marks] Use the data to demonstrate a statistical concept from Part I of the course. Describe the
+concept that you are demonstrating and interpret the findings. This should be a combination of code
+and written explanation.
+
+# answer here 
+
+
+
