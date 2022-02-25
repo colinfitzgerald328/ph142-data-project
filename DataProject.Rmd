@@ -16,20 +16,31 @@ library(dplyr)
 1. [2 marks] What is the problem your are addressing with these data? State the question you are trying
 to answer and let us know what type of question this is in terms of the PPDAC framework.
 
-The problem we are addressing with this data is the estimation of obesity levels based on eating habits and physical condition. We are trying answer the question of whether there are specific factors within eating habits and physical conditions that leads to a higher levels of obesity. Some of these factors include frequent consumption of high caloric food, number of main meals, consumption of water daily, physical activity frequency, and transportation used. This question is a causative/etiologic question. 
+The problem we are addressing with this data is the estimation of obesity levels based on eating habits and physical condition. 
 
+We are trying to answer the question of whether there are specific factors within eating habits and physical conditions that leads to a higher levels of obesity. Some of these factors include frequent consumption of high caloric food, number of main meals, consumption of water daily, physical activity frequency, and transportation used. This question is a causative/etiologic question:
+
+Are there potential associations or trends within the eating habits and physical conditions of individuals of Mexico, Peru and Columbia that may have lead to higher levels of obesity in the respective countries?
 
 2. [2 marks] What is the target population for your project? Why was this target chosen i.e., what was
 your rationale for wanting to answer this question in this specific population?
 
-The target population for this project are individuals from Mexico, Peru, and Columbia between the ages of 14 and 61 with diverse eating habits and physical conditions. The rationale for wanting to answer this question in this specific population is that we have a wide variety of the population in which making a generalization would be more accurate. There are people with all different factors and exposures that can help us identify key factors that lead to an increase in obesity levels. Specifically, these countries were chosen as they have high rates of obesity and are currently showing no steps at lowering them. 
+The target population for this project are individuals from Mexico, Peru, and Columbia between the ages of 14 and 61 with diverse eating habits and physical conditions. 
+
+The rationale for wanting to answer this question in this specific population is that  we want to study potential community or cultural factors that may have led to high obesity levels and be able to make a generalization of risk factors for these specific countries.
+
+There are people with all different factors and exposures that can help us identify key factors that lead to an increase in obesity levels. Specifically, these countries were chosen as they have high rates of obesity and are currently showing no steps at lowering them. This may provide insight on the factors that increase obesity levels and may show us areas that can be focused on to lower these levels. 
 
 3. [2 marks] What is the sampling frame used to collect the data you are using? Describe why you think
 this sampling strategy is appropriate for your question. To what group(s) would you feel comfortable
 generalizing the findings of your study and why.
 
-# answer here
+This data comes from an estimation of obesity levels in people from the countries of Mexico, Peru and Colombia, with ages between 14 and 61 and diverse eating habits and physical condition. 
 
+Data was collected using a web platform with a survey where anonymous users answered each question, then the information was processed obtaining 17 attributes and 2111 records. The attributes that were collected were related to eating habits, physical conditions, gender, age, height and weight. 
+This sampling strategy is appropriate for our question given we are interested in looking at and getting more information on potential community or culture driven factors that lead to a higher levels of obesity in each country. 
+
+We would feel comfortable generalizing the findings of our study to Mexico, Peru, and Colombia’s neighboring countries in Central and South America given that we may find potential trends and associations in the eating and physical habits across the three countries.
 
 4. [2 marks] Write a brief description (1-4 sentences) of the source and contents of your dataset. Provide
 a URL to the original data source if applicable. If not (e.g., the data came from your internship),
@@ -37,8 +48,9 @@ provide 1-2 sentences saying where the data came from. If you completed a web fo
 data and selected a subset, describe these steps (including any options you selected) and the date you
 accessed the data.
 
-# answer here 
+https://archive.ics.uci.edu/ml/datasets/Estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition+. 
 
+The data came from the UC Irvine Machine Learning Repository and contains information such as Frequent consumption of high caloric food (FAVC), Frequency of consumption of vegetables (FCVC), Physical activity frequency (FAF), Time using technology devices (TUE), Transportation used (MTRANS), and other variables as such. We didn’t have to complete a web form to access the data and did not need to subset it either. There were links to download both the Data Folder and the Data Set Description at the top of the website. We accessed the data on Monday February 21, 2022. 
 
 5. [1 mark] Write code below to import your data into R. Assign your dataset to an object.
 ```{r, message=FALSE}
