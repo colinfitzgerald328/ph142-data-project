@@ -22,6 +22,8 @@ We are trying to answer the question of whether there are specific factors withi
 
 Are there potential associations or trends within the eating habits and physical conditions of individuals of Mexico, Peru and Columbia that may have lead to higher levels of obesity in the respective countries?
 
+\newpage
+
 2. [2 marks] What is the target population for your project? Why was this target chosen i.e., what was
 your rationale for wanting to answer this question in this specific population?
 
@@ -30,6 +32,8 @@ The target population for this project are individuals from Mexico, Peru, and Co
 The rationale for wanting to answer this question in this specific population is that  we want to study potential community or cultural factors that may have led to high obesity levels and be able to make a generalization of risk factors for these specific countries.
 
 There are people with all different factors and exposures that can help us identify key factors that lead to an increase in obesity levels. Specifically, these countries were chosen as they have high rates of obesity and are currently showing no steps at lowering them. This may provide insight on the factors that increase obesity levels and may show us areas that can be focused on to lower these levels. 
+
+\newpage
 
 3. [2 marks] What is the sampling frame used to collect the data you are using? Describe why you think
 this sampling strategy is appropriate for your question. To what group(s) would you feel comfortable
@@ -42,6 +46,8 @@ This sampling strategy is appropriate for our question given we are interested i
 
 We would feel comfortable generalizing the findings of our study to Mexico, Peru, and Colombia’s neighboring countries in Central and South America given that we may find potential trends and associations in the eating and physical habits across the three countries.
 
+\newpage
+
 4. [2 marks] Write a brief description (1-4 sentences) of the source and contents of your dataset. Provide
 a URL to the original data source if applicable. If not (e.g., the data came from your internship),
 provide 1-2 sentences saying where the data came from. If you completed a web form to access the
@@ -52,10 +58,14 @@ https://archive.ics.uci.edu/ml/datasets/Estimation+of+obesity+levels+based+on+ea
 
 The data came from the UC Irvine Machine Learning Repository and contains information such as Frequent consumption of high caloric food (FAVC), Frequency of consumption of vegetables (FCVC), Physical activity frequency (FAF), Time using technology devices (TUE), Transportation used (MTRANS), and other variables as such. We didn’t have to complete a web form to access the data and did not need to subset it either. There were links to download both the Data Folder and the Data Set Description at the top of the website. We accessed the data on Monday February 21, 2022. 
 
+\newpage
+
 5. [1 mark] Write code below to import your data into R. Assign your dataset to an object.
 ```{r, message=FALSE}
 obesity_data <- read_csv("ObesityDataSet_raw_and_data_sinthetic.csv")
 ```
+
+\newpage
 
 6. [3 marks] Use code in R to answer the following questions:
 i) What are the dimensions of the dataset?
@@ -79,6 +89,8 @@ iii) Print the first six rows of the dataset.
 ```{r}
 head(obesity_data)
 ```
+
+\newpage
 
 
 7. [4 marks] Use the data to demonstrate a statistical concept from Part I of the course. Describe the
