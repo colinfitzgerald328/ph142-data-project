@@ -85,4 +85,15 @@ head(obesity_data)
 concept that you are demonstrating and interpret the findings. This should be a combination of code
 and written explanation.
 
-# answer here
+The overarching statistical concept that our group wanted to demostrated in the linear association between two quantitative variables from our dataset. The two variables we did this with were height of participants (in meters) and weight of participants (in kilograms). The method we used to do so was performing linear regression of the dependent variable in this case of weight on the explanatory variable of height. We first made a scatter plot through ggplot2 with a best fit regression line include from the first code chunk below to visualize the data and get a sense of what the regression coefficients should look like. We then performed linear regression shown in the second code chunk below and received a readout for the regression coefficients as -134.6 for the intercept coefficient and 130.0 for the coefficient of height on weight. In context, the intercept coefficient indicates that a person with a height of 0.0 meters should weigh -134.6 kg. Obviously this doesn't make sense in context because people cannot have negative weights and this readout comes from the narrowness of our sampling data. Only people between roughly 1.4 meters and 2.0 meters in height are included in this dataframe, and because this data is looking at primarily obese individuals, the data most likely has a somewhat unrepresentative height to weight ratio when performing regression as compared to the general population. In context, the readout for the height coefficient suggests that a 1 meter increase in the height of a participant will mean that there will be a 130 kg increase in the weight of the individual. This coefficient makes more sense in context as there tends to be a direct relationship between height and weight in people, but the magnitude of this coefficient is likely biased to the selection of the sampling frame as well.
+
+```{r}
+obesity_hw_scatter = ggplot(data = obesity_data, aes(x = Height, y = Weight)) + geom_point() +
+  geom_smooth(method = lm) + labs(title = 'Obesity Data Heights and Weights Plotted')
+obesity_hw_scatter
+```
+
+```{r}
+obesity_hw_regression <- lm(Weight ~ Height, data = obesity_data)
+obesity_hw_regression
+```
