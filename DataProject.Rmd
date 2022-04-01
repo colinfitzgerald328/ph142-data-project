@@ -160,5 +160,43 @@ iii) Why is this an appropriate model for the data you are studying?
 Describe the concept that you are demonstrating and interpret the findings. This may include code in
 R, a visual of some kind and text interpretation
 
+```{r}
+mean_height <- mean(obesity_data$Height)
+std_height <- sd(obesity_data$Height)
+
+men <-obesity_data %>% filter(Gender == 'Male')
+male_mean_height <- mean(men$Height)
+std_male_height <- sd(men$Height)
+
+women <- obesity_data %>% filter(Gender == 'Female')
+female_mean_height <- mean(women$Height)
+std_female_height <- sd(women$Height)
+```
+
+```{r}
+CI_lower_all_data <- mean_height - (1.96 * (std_height/sqrt(nrow(obesity_data))))
+CI_upper_all_data <- mean_height + (1.96 * (std_height/sqrt(nrow(obesity_data))))
+
+CI_lower_male_data <- male_mean_height - (1.96 * (std_male_height/sqrt(nrow(men))))
+CI_upper_male_data <- male_mean_height + (1.96 * (std_male_height/sqrt(nrow(men))))
+
+CI_lower_female_data <- female_mean_height - (1.96 * (std_female_height/sqrt(nrow(women))))
+CI_upper_female_data <- female_mean_height + (1.96 * (std_female_height/sqrt(nrow(women))))
+```
+
+```{r}
+CI_all_data <- c(CI_lower_all_data, CI_upper_all_data)
+CI_all_data
+```
+
+```{r}
+CI_male_data <- c(CI_lower_male_data, CI_upper_male_data)
+CI_male_data
+```
+
+```{r}
+CI_female_data <- c(CI_lower_female_data, CI_upper_female_data)
+CI_female_data
+```
 
 \newpage
