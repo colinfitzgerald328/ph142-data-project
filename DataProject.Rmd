@@ -109,3 +109,37 @@ obesity_hw_scatter
 obesity_hw_regression <- lm(Weight ~ Height, data = obesity_data)
 obesity_hw_regression
 ```
+
+
+/newpage 
+
+Part 2
+
+2. 
+```{r}
+library(janitor)
+obesity_data$CAEC <- factor(obesity_data$CAEC, levels=c('no', 'Sometimes', 'Frequently', 'Always'))
+tabyl(obesity_data, Gender, CAEC) %>% adorn_totals(where = c("row", "col")) %>% adorn_percentages("row") %>% adorn_pct_formatting() %>% adorn_ns() %>% knitr::kable()
+```
+
+We would like to calculate the conditional probabilities of eating habits based on gender. We are curious to see how eating habits between meals vary by gender. 
+
+$P$(does not eat between meals | Female) $= 15/1043 = 1.4$%
+
+$P$(sometimes eats between meals | Female) $= 844/1043 = 80.9$%
+
+$P$(frequently eats between meals | Female) $= 161/1043 = 15.4$%
+
+$P$(always eats between meals | Female) $= 23/1043 = 2.2$%
+
+$P$(does not eat between meals | Male) $= 36/1068 = 3.4$%
+
+$P$(sometimes eats between meals | Male) $= 921/1068 = 86.2$%
+
+$P$(frequently eats between meals | Male) $= 81/1068 = 7.6$%
+
+$P$(always eats between meals | Male) $= 30/1068 = 2.8$%
+
+The above probabilities are the probability of each eating habit conditioned on gender. 
+
+/newpage
