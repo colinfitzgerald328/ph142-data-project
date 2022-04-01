@@ -111,11 +111,13 @@ obesity_hw_regression
 ```
 
 
-/newpage 
+\newpage 
 
-Part 2
+## Part 2
 
-2. 
+2. [2 marks] Describe a quantity you will estimate as an outcome in your problem using probability
+notation. Are you planning to calculate marginal probabilities? Conditional probabilities?
+
 ```{r}
 library(janitor)
 obesity_data$CAEC <- factor(obesity_data$CAEC, levels=c('no', 'Sometimes', 'Frequently', 'Always'))
@@ -142,4 +144,21 @@ $P$(always eats between meals | Male) $= 30/1068 = 2.8$%
 
 The above probabilities are the probability of each eating habit conditioned on gender. 
 
-/newpage
+\newpage
+
+
+3. [3 marks] Describe the type of theoretical distribution that is relevant for your data.
+i) What type of variable(s) are you investigating (continuous, categorical, ordinal, etc)?
+ii) What theoretical distribution that we have talked about would potentially be appropriate to use with
+these data (Normal, Binomial, Poisson. . . )
+iii) Why is this an appropriate model for the data you are studying?
+
+\newpage
+
+
+4. [4 marks] Use the data you have to demonstrate a statistical concept from Part II of the course.
+Describe the concept that you are demonstrating and interpret the findings. This may include code in
+R, a visual of some kind and text interpretation
+
+
+\newpage
