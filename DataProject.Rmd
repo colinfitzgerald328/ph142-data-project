@@ -80,7 +80,7 @@ The dimensions of the dataset are 2111 rows by 17 columns.
 ii) Provide a list of variable names.
 
 ```{r}
-spec(obesity_data)
+names(obesity_data)
 ```
 
 
@@ -100,8 +100,10 @@ and written explanation.
 The overarching statistical concept that our group wanted to demostrated in the linear association between two quantitative variables from our dataset. The two variables we did this with were height of participants (in meters) and weight of participants (in kilograms). The method we used to do so was performing linear regression of the dependent variable in this case of weight on the explanatory variable of height. We first made a scatter plot through ggplot2 with a best fit regression line include from the first code chunk below to visualize the data and get a sense of what the regression coefficients should look like. We then performed linear regression shown in the second code chunk below and received a readout for the regression coefficients as -134.6 for the intercept coefficient and 130.0 for the coefficient of height on weight. In context, the intercept coefficient indicates that a person with a height of 0.0 meters should weigh -134.6 kg. Obviously this doesn't make sense in context because people cannot have negative weights and this readout comes from the narrowness of our sampling data. Only people between roughly 1.4 meters and 2.0 meters in height are included in this dataframe, and because this data is looking at primarily obese individuals, the data most likely has a somewhat unrepresentative height to weight ratio when performing regression as compared to the general population. In context, the readout for the height coefficient suggests that a 1 meter increase in the height of a participant will mean that there will be a 130 kg increase in the weight of the individual. This coefficient makes more sense in context as there tends to be a direct relationship between height and weight in people, but the magnitude of this coefficient is likely biased to the selection of the sampling frame as well.
 
 ```{r}
-obesity_hw_scatter = ggplot(data = obesity_data, aes(x = Height, y = Weight)) + geom_point() +
-  geom_smooth(method = lm) + labs(title = 'Obesity Data Heights and Weights Plotted')
+obesity_hw_scatter = ggplot(data = obesity_data, aes(x = Height, y = Weight)) + 
+  geom_point() +
+  geom_smooth(method = lm) + 
+  labs(title = 'Obesity Data Heights and Weights Plotted')
 obesity_hw_scatter
 ```
 
@@ -121,10 +123,11 @@ notation. Are you planning to calculate marginal probabilities? Conditional prob
 ```{r}
 library(janitor)
 obesity_data$CAEC <- factor(obesity_data$CAEC, levels=c('no', 'Sometimes', 'Frequently', 'Always'))
-tabyl(obesity_data, Gender, CAEC) %>% adorn_totals(where = c("row", "col")) %>% adorn_percentages("row") %>% adorn_pct_formatting() %>% adorn_ns() %>% knitr::kable()
+tabyl(obesity_data, Gender, CAEC) %>% adorn_totals(where = c("row", "col")) %>% 
+  adorn_percentages("row") %>% adorn_pct_formatting() %>% adorn_ns() %>% knitr::kable()
 ```
 
-We would like to calculate the conditional probabilities of eating habits based on gender. We are curious to see how eating habits between meals vary by gender. 
+We would like to calculate the conditional probabilities of eating habits based on gender. We are curious to see how eating habits between meals vary by gender. The above table creates those conditional probabilities for us. The quantities we will estimate as an outcome, are categorical variables, (no, sometimes, frequently, always), based on gender. Below we report those calculated probabilities. These are estimations for this data set only. 
 
 $P$(does not eat between meals | Female) $= 15/1043 = 1.4$%
 
@@ -147,7 +150,7 @@ The above probabilities are the probability of each eating habit conditioned on 
 \newpage
 
 
-3. [3 marks] Describe the type of theoretical distribution that is relevant for your data.'
+3. [3 marks] Describe the type of theoretical distribution that is relevant for your data.
 
 i) What type of variable(s) are you investigating (continuous, categorical, ordinal, etc)?
 
@@ -166,7 +169,7 @@ Some other variables of interest are Time using technology devices (TUE), Number
 ii) What theoretical distribution that we have talked about would potentially be appropriate to use with these data (Normal, Binomial, Poisson. . . )
 
 If we were to investigate one of the continuous variables such as height or age, then a normal distribution would be appropriate. 
-However, if we were to investigate one of the binary variables then a binomial distribution would be more appropriate. 
+However, if we were to investigate one of the binary variables then a binomial distribution would be more appropriate, which could be modeled from a Bernoulli variable derived from setting 'yes' and 'no' to 0 and 1 in the data set. 
 
 The main distributions for categorical data analysis are the binomial and multinomial distributions. Probabilities associated with different combinations of events can be determined based on the distributions.
 
@@ -176,16 +179,19 @@ Let’s focus on investigating height for the purpose of this question. In order
 
 ```{r}
 ggplot(obesity_data, aes(sample = Height)) + stat_qq() + stat_qq_line() +
-theme_minimal(base_size = 15) + labs(title = "QQ Plot of Height from Obesity Data Set") + xlab("Theoretical") + ylab("Sample")
+theme_minimal(base_size = 15) + 
+  labs(title = "QQ Plot of Height from Obesity Data Set") + 
+  xlab("Theoretical") + ylab("Sample")
 ```
 
-When we plot the theoretical quantiles on the Q-Q plot, we can see that the points are most closely attached from about a height of 1.6 to 1.8 so a normal distribution is appropriate for those values; however, as we go higher we start to see a little bit of a skew so a normal distribution would no longer be appropriate. 
+When we plot the theoretical quantiles on the Q-Q plot, we can see that the points are most closely attached from about a height of 1.6 to 1.8 meters so a normal distribution is appropriate for those values; however, as we go higher and lower we start to see a little bit of a skew so a normal distribution would no longer be appropriate. 
 
 Furthermore, after stratifying height by gender, we plotted their histograms and we can see that they follow a relatively normal distribution for both genders. 
 
 ```{r}
 ggplot(obesity_data,aes(x = Height, colour=Gender)) + 
-  geom_histogram(aes(y = ..count.., fill=Gender), alpha=0.5,position="identity") + ggtitle("Histogram of Height by Gender from Data Set")
+  geom_histogram(aes(y = ..count.., fill=Gender), alpha=0.5,position="identity") + 
+  ggtitle("Histogram of Height by Gender from Data Set")
 ```
 
 \newpage
@@ -247,10 +253,15 @@ gg$y <- gg$y * aggregate(Height~Gender, obesity_data,length)$Height * diff(range
 
 ggplot(obesity_data,aes(x = Height, colour=Gender)) + 
   geom_histogram(aes(y = ..count.., fill=Gender), alpha=0.5,position="identity") +
-  geom_line(data=gg, aes(y=y)) + geom_vline(xintercept = CI_lower_female_data) + geom_vline(xintercept = CI_upper_female_data) + geom_vline(xintercept = CI_lower_male_data) + geom_vline(xintercept = CI_upper_male_data)
+  geom_line(data=gg, aes(y=y)) + 
+  geom_vline(xintercept = CI_lower_female_data) + 
+  geom_vline(xintercept = CI_upper_female_data) + 
+  geom_vline(xintercept = CI_lower_male_data) + geom_vline(xintercept = CI_upper_male_data)
 ```
 
-The above is a visualization of our confidence intervals. 
+The above is a visualization of our confidence intervals, for the stratification by gender. 
+
+\newpage
 
 The concept that we are demonstrating is finding a confidence interval. A confidence interval displays the probability that a parameter will fall between a pair of values around the mean. Specifically within our data, we found the confidence interval for our entire dataset and stratified our data by gender (male and female). Our confidence intervals specifically work to capture the mean height of obese males, females, and both in Mexico, Peru and Columbia. Based on our results, we found that the interval 1.697697 - 1.705658 (meters) has a 95% success rate in capturing within that interval the mean height µ of all obese males and females in Mexico, Peru and Columbia. After we stratified our data by gender we found that the interval 1.754362 - 1.763019 (meters) has a 95% success rate in capturing within that interval the mean height µ of obese males in Mexico, Peru and Columbia. We also found that the interval 1.638776 - 1.647820 (meters) has a 95% success rate in capturing within that interval the mean height µ of obese females in Mexico, Peru and Columbia. By conducting these confidence intervals, we found there to be a statistically significant difference in the true mean height of all 3 intervals due to there not being any overlap in confidence intervals. 
 
