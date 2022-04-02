@@ -147,11 +147,34 @@ The above probabilities are the probability of each eating habit conditioned on 
 \newpage
 
 
-3. [3 marks] Describe the type of theoretical distribution that is relevant for your data.
+3. [3 marks] Describe the type of theoretical distribution that is relevant for your data.'
+
 i) What type of variable(s) are you investigating (continuous, categorical, ordinal, etc)?
-ii) What theoretical distribution that we have talked about would potentially be appropriate to use with
-these data (Normal, Binomial, Poisson. . . )
+
+There are 17 attributes in our data set and all of the variables were categorical except three: Weight, Height, and Age. Those three variables were numerical and continuous since we can assume an infinite number of real values within a given interval.
+It is worth noting that our data set also includes 5 binary attributes since each observation either falls into YES or NO categories or in the case of Gender ( MALE or FEMALE), there are a fixed number of observations, each observation is independent, and the probability of each observation is 50%: 
+
+Gender
+Frequent consumption of high caloric food (FAVC)
+Calories consumption monitoring (SCC)
+Smoker
+Familial Overweight Connection
+
+
+Some other variables of interest are Time using technology devices (TUE), Number of main meals (NCP), Consumption of food between meals (CAEC), which are all categorical and ordinal variables in our data set. This is the case since their values are defined by an order relation between the different categories ie. sometimes, frequently, and always.
+
+ii) What theoretical distribution that we have talked about would potentially be appropriate to use with these data (Normal, Binomial, Poisson. . . )
+
+If we were to investigate one of the continuous variables such as height or age, then a normal distribution would be appropriate. 
+However, if we were to investigate one of the binary variables then a binomial distribution would be more appropriate. 
+
+The main distributions for categorical data analysis are the binomial and multinomial distributions. Probabilities associated with different combinations of events can be determined based on the distributions.
+
 iii) Why is this an appropriate model for the data you are studying?
+
+When we plot the theoretical quantiles on the QQ plot, we can see that the points are most closely attached from about a height of 1.6 to 1.8 so a normal distribution is apporopriate for those values; however, as we go higher we start to see a little bit of a skew so a normal distribution would no longer be appropriate. 
+
+
 
 \newpage
 
