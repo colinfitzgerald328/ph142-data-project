@@ -234,10 +234,6 @@ CI_female_data <- c(CI_lower_female_data, CI_upper_female_data)
 CI_female_data
 ```
 
-\newpage
-
-# Code to visualize confidence intervals
-
 ```{r}
 library(ggplot2)
 library(MASS)       # for fitdistr(...)
@@ -253,3 +249,13 @@ ggplot(obesity_data,aes(x = Height, colour=Gender)) +
   geom_histogram(aes(y = ..count.., fill=Gender), alpha=0.5,position="identity") +
   geom_line(data=gg, aes(y=y)) + geom_vline(xintercept = CI_lower_female_data) + geom_vline(xintercept = CI_upper_female_data) + geom_vline(xintercept = CI_lower_male_data) + geom_vline(xintercept = CI_upper_male_data)
 ```
+
+The above is a visualization of our confidence intervals. 
+
+The concept that we are demonstrating is finding a confidence interval. A confidence interval displays the probability that a parameter will fall between a pair of values around the mean. Specifically within our data, we found the confidence interval for our entire dataset and stratified our data by gender (male and female). Our confidence intervals specifically work to capture the mean height of obese males, females, and both in Mexico, Peru and Columbia. Based on our results, we found that the interval 1.697697 - 1.705658 has a 95% success rate in capturing within that interval the mean height µ of all obese males and females in Mexico, Peru and Columbia. After we stratified our data by gender we found that the interval 1.754362 - 1.763019 has a 95% success rate in capturing within that interval the mean height µ of obese males in Mexico, Peru and Columbia. We also found that the interval 1.638776 - 1.647820 has a 95% success rate in capturing within that interval the mean height µ of obese females in Mexico, Peru and Columbia. By conducting these confidence intervals, we found there to be a statistically significant difference in the true mean height of all 3 intervals due to there not being any overlap in confidence intervals. 
+
+\newpage
+
+
+
+
