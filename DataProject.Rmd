@@ -236,7 +236,7 @@ CI_female_data
 
 \newpage
 
-# Code to visualize confidence intervals (if we want to include) 
+# Code to visualize confidence intervals
 
 ```{r}
 library(ggplot2)
