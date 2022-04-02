@@ -200,3 +200,21 @@ CI_female_data
 ```
 
 \newpage
+
+# Code to visualize confidence intervals (if we want to include) 
+
+```{r}
+library(ggplot2)
+library(MASS)       # for fitdistr(...)
+get.params <- function(z) with(fitdistr(z,"normal"),estimate[1:2])
+df <- aggregate(Height~Gender, obesity_data, get.params)
+df <- data.frame(Gender=df[,1],df[,2])
+x  <- with(obesity_data, seq(min(obesity_data$Height),max(obesity_data$Height),len=100))
+gg <- data.frame(Height=rep(x,nrow(df)),df)
+gg$y <- with(gg,dnorm(x,mean,sd))
+gg$y <- gg$y * aggregate(Height~Gender, obesity_data,length)$Height * diff(range(obesity_data$Height))/30
+
+ggplot(obesity_data,aes(x = Height, colour=Gender)) + 
+  geom_histogram(aes(y = ..count.., fill=Gender), alpha=0.5,position="identity") +
+  geom_line(data=gg, aes(y=y)) + geom_vline(xintercept = CI_lower_female_data) + geom_vline(xintercept = CI_upper_female_data) + geom_vline(xintercept = CI_lower_male_data) + geom_vline(xintercept = CI_upper_male_data)
+```
