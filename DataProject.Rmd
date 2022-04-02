@@ -172,6 +172,18 @@ The main distributions for categorical data analysis are the binomial and multin
 
 iii) Why is this an appropriate model for the data you are studying?
 
+```{r}
+ggplot(obesity_data,aes(x = Height, colour=Gender)) + 
+  geom_histogram(aes(y = ..count.., fill=Gender), alpha=0.5,position="identity") + ggtitle("Histogram of Height by Gender from Data Set")
+```
+
+# write about histogram shape for men and women here 
+
+```{r}
+ggplot(obesity_data, aes(sample = Height)) + stat_qq() + stat_qq_line() +
+theme_minimal(base_size = 15) + labs(title = "QQ Plot of Height from Obesity Data Set") + xlab("Theoretical") + ylab("Sample")
+```
+
 When we plot the theoretical quantiles on the QQ plot, we can see that the points are most closely attached from about a height of 1.6 to 1.8 so a normal distribution is apporopriate for those values; however, as we go higher we start to see a little bit of a skew so a normal distribution would no longer be appropriate. 
 
 
@@ -245,12 +257,6 @@ ggplot(obesity_data,aes(x = Height, colour=Gender)) +
 
 # Code for Visualizations of Height and QQ Plot
 
-```{r}
-ggplot(obesity_data,aes(x = Height, colour=Gender)) + 
-  geom_histogram(aes(y = ..count.., fill=Gender), alpha=0.5,position="identity") + ggtitle("Histogram of Height by Gender from Data Set")
-```
 
-```{r}
-ggplot(obesity_data, aes(sample = Height)) + stat_qq() + stat_qq_line() +
-theme_minimal(base_size = 15) + labs(title = "QQ Plot of Height from Obesity Data Set") + xlab("Theoretical") + ylab("Sample")
-```
+
+
