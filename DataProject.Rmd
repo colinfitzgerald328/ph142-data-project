@@ -373,7 +373,17 @@ According to the tables we generated for observed and expected counts of gender-
 
 9. [1 point] Create a statement of contribution. For example, the American Journal of Epidemiology provides the following instructions to authors: “Authorship credit should be based on criteria developed by the International Committee for Medical Journal Editors (ICMJE): 1) substantial contributions to conception and design, or acquisition of data, or analysis and interpretation of data; 2) drafting the article or reviewing it and, if appropriate, revising it critically for important intellectual content; 3) final approval of the version to be published. Authors should meet all conditions. In addition, each author must certify that they have participated sufficiently in the work to believe in its overall validity and to take public responsibility for appropriate portions of its content. Author names should be listed in ScholarOne and author contributions should be detailed in the cover letter (e.g., “Author A designed the study and directed its implementation, including quality assurance and control. Author B helped supervise the field activities and designed the study’s analytic strategy. Author C helped conduct the literature review and prepare the Methods and the Discussion sections of the text.”).”
 
-## answer later 
+
+Every group member contributed relatively equally to the overarching project given we had joint responsibilities for a lot of the questions.
+Member QD had joint responsibility for question 7 in Part I of the project, question 4 in Part II, and questions  6-8 in Part III.
+
+Member CA had joint responsibility for questions 3 and 4 in Part I of the project, question 3 in Part II of the project, and questions 2, 3, 4 and 5 in Part III of the project.
+Member AT had joint responsibility for questions 1 and 2 in Part I of the project, question 4 in Part II of the project, and questions 2, 3, 4 and 5 in Part III of the project.
+
+Member NM had joint responsibility for questions 3 and 4 in Part I of the project, question 3 in Part II, and questions 6-8 in Part III.
+
+Member CF had joint responsibility for questions 5 and 6 in Part I of the project, question 2 and 3 in part II of the project, and questions 6-8 in Part III. 
+ 
 
 
 
