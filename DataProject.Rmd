@@ -267,15 +267,27 @@ The concept that we are demonstrating is finding a confidence interval. A confid
 
 \newpage
 
-
 ## Part 3
 
-1. [1 point] Include your work from parts I and II of the data project. 
 2. [2 points] Identify a statistical test to apply to your data (must be a concept we covered in part III of the course). In plain language, write the question you are trying to answer. 
+
+
 The statistical test we plan to apply to our data is a chi-square test for independence. The question we are trying to answer is if there is an association between obesity level and gender within individuals of our study. This is to analyze if gender is a risk factor for obesity. We are using 2 categories of gender (male and female) and 7 obesity levels (insufficient weight, normal weight, obesity type 1, obesity type 2, obesity type 3, overweight level 1, overweight level 2) to see if there is an association between level and gender. 
+
+\newpage
+
+
 3. [2 points] What assumptions are required by the method you chose in question 2? Show how you assessed whether these assumptions are met by your dataset. 
+
+
 An assumption that is required by the chi-squared test is to have performed a simple random sample to obtain the data. This data was collected by an online survey that may have not necessarily been random as we are prone to bias of response and nonresponse. Therefore this is not a complete random sample, but for this data project, we will continue with its use. Another assumption is that the variables are categorical and we made sure to choose 2 categorical variables. With the obesity data, we made sure not to use weight as the determining factor because that would be a continuous variable, but the obesity levels are categorical. The last assumption that our data met to proceed with this test is that the expected counts are at least 5 which we see to be the case in our expected table that we calculated. 
+
+\newpage
+
+
 4. [2 points] Explain why this test is appropriate for the data you have and the question you are trying to answer. Use at least one visualization technique and include both the output and the R code that generated it. 
+
+
 A chi-square test for independence is appropriate for our data because we are using 2 categorical variables that are able to be counted easily. We are looking to see if there is a relationship between the two and this test would allow us to determine if there was one. We see with our data in the 2 way table that it is in good format for counts with a chi-squared test and visualization with a dodge bar chart. 
 
 ```{r}
@@ -287,21 +299,82 @@ ggplot(obesity_data,aes(x = NObeyesdad, colour = Gender)) +
 ggplot(obesity_data,aes(x = NObeyesdad , colour = Gender))+ theme(axis.text.x = element_text(angle = 45, hjust=1)) +
   geom_bar(aes(y = ..count.., fill=Gender, stat="identity")) + facet_grid(.~FAVC) 
 
+```
+
 ```{r}
 library(janitor)
-observed_table <- matrix(c(173, 141, 156,2,323,145,103, 99,146,195,295,1,145,187), nrow = 2, ncol = 7, byrow = T)
+observed_table <- matrix(c(173, 141, 156,2,323,145,103, 99,146,195,295,1,145,187), 
+                         nrow = 2, ncol = 7, byrow = T)
 rownames(observed_table) <- c('Female', 'Male')
-colnames(observed_table) <- c('Insufficient Weight', 'Normal Weight', 'Obesity Type I', 'Obesity Type II','Obesity Type III','Overweight Level I','Overweight Level II')
+colnames(observed_table) <- c('Insufficient Weight', 
+                              'Normal Weight', 
+                              'Obesity Type I', 
+                              'Obesity Type II',
+                              'Obesity Type III',
+                              'Overweight Level I',
+                              'Overweight Level II')
 ObservedVal_Table <- knitr::kable(observed_table, caption = "Observed Data")
 ObservedVal_Table
-ExpectedVal_Table <- knitr::kable(chisq.test(observed_table)$expected, caption = "Expected Data")
+ExpectedVal_Table <- knitr::kable(chisq.test(observed_table)$expected, 
+                                  caption = "Expected Data")
 ExpectedVal_Table
 ```
+\newpage
+
 5. [2 points] Clearly state the null and alternative hypotheses for this test. 
-Ho: Gender and obesity level are independent. 
-Ha: Gender and obesity level are not independent. 
+
+$H_{o}$: Gender and obesity level are independent. 
+$H_{a}$: Gender and obesity level are not independent. 
+
+\newpage
+
+
 6. [2 points] Include the R code you used to generate your results. Annotate your code to help us follow your reasoning. 
+
+```{r}
+#perform chi-squared test in order to generate test statistic
+chisq.test(observed_table)
+#use the chi-squared test statistic in order to 
+#calculate the p-value with the appropriate 
+#degrees of freedom (rows - 1)(columns-1) = 6
+pchisq(q=657.75, df=6, lower.tail = FALSE)
+```
+\newpage
+
 7. [4 points] Present your results in a clear summary. This should include both a text summary and a table or figure with appropriate labeling. 
+
+Assuming no association between gender and obesity, there is approximately a 0% chance of the chi-square value we calculated or a larger one. This probability is small enough that there is evidence in favor of the alternative hypothesis that there is a relationship between gender and obesity.
+
+Below we created a visualization of the distribution of each weight class by each gender. This table was created using the observed values in the survey.  
+
+```{r}
+library(DescTools)
+#gender_obesity_table <- tabyl(obesity_data, Gender, NObeyesdad) %>% knitr::kable()
+#ExpectedVal_Table
+#mosaicplot(gender_obesity_t, dir = c("h", "v"))
+#mosaicplot(obesity_data)
+PlotMosaic(observed_table, main = "NObeyesdad ~ Gender", 
+           off = 0.05, horiz = FALSE, xlab = "NObeyesdad", y = "Gender")
+```
+
+\newpage 
+
+
 8. [4 points] Interpret your findings. Include a statement about the evidence, your conclusions, and the generalizability of your findings. Our analysis and conclusions depend on the quality of our study design and the methods of data collection. Any missteps or oversights during the data collection process could potentially change the outcome of what we are trying to find. Consider the methods used to collect the data you analyzed. Was there any potential issue in how the participants were selected/recruited, retained, or assessed that may have impacted the outcome of your analysis/visualization? Were there any potential biases that you might be concerned about? Were there factors that were not measured or considered that you think could be important to the interpretation of these data? 
+
+
+
+According to the tables we generated for observed and expected counts of gender-obesity status pairs, there were large discrepancies between the observed and expected counts for many data pairs which is most likely the reason we observed such an extreme chi-square test statistic and p-value. Based on the chi-square test results, the data suggests that there is dependence between the variables of gender and obesity status. However, we are not particularly optimistic of the generalizability of these findings due to the methods of data collection in order to generate our data. The data was generated from an anonymous online survey which could lead to two major data collection issues. The first is related to the bias of those who chose to participate. If the survey was targeted at viewing associations of obesity indicators to people and their obesity status, it may have been more applicable for individuals who fall under the obesity spectrum to participate. Additionally, even though the survey was anonymous, people of certain groups may be more or less likely to respond honestly to the survey given any views on their health status.
+
+
+
+\newpage
+
+
 9. [1 point] Create a statement of contribution. For example, the American Journal of Epidemiology provides the following instructions to authors: “Authorship credit should be based on criteria developed by the International Committee for Medical Journal Editors (ICMJE): 1) substantial contributions to conception and design, or acquisition of data, or analysis and interpretation of data; 2) drafting the article or reviewing it and, if appropriate, revising it critically for important intellectual content; 3) final approval of the version to be published. Authors should meet all conditions. In addition, each author must certify that they have participated sufficiently in the work to believe in its overall validity and to take public responsibility for appropriate portions of its content. Author names should be listed in ScholarOne and author contributions should be detailed in the cover letter (e.g., “Author A designed the study and directed its implementation, including quality assurance and control. Author B helped supervise the field activities and designed the study’s analytic strategy. Author C helped conduct the literature review and prepare the Methods and the Discussion sections of the text.”).”
+
+## answer later 
+
+
+
 
