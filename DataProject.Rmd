@@ -290,16 +290,13 @@ An assumption that is required by the chi-squared test is to have performed a si
 
 A chi-square test for independence is appropriate for our data because we are using 2 categorical variables that are able to be counted easily. We are looking to see if there is a relationship between the two and this test would allow us to determine if there was one. We see with our data in the 2 way table that it is in good format for counts with a chi-squared test and visualization with a dodge bar chart. 
 
+
 ```{r}
 ggplot(obesity_data,aes(x = NObeyesdad, colour = Gender)) + 
   geom_bar(aes(y = ..count.., fill=Gender), alpha=0.5,position = "dodge") + 
   ggtitle("Barplot of Obesity Levels by Gender from Data Set") + theme(axis.text.x = element_text(angle = 45, hjust=1))
 ```
-```{r}
-ggplot(obesity_data,aes(x = NObeyesdad , colour = Gender))+ theme(axis.text.x = element_text(angle = 45, hjust=1)) +
-  geom_bar(aes(y = ..count.., fill=Gender, stat="identity")) + facet_grid(.~FAVC) 
-
-```
+Looking at the visualization, we can see that there appears to be a difference in the distribution of counts of obesity level by gender, which means a chi-squared test for independence would be appropriate to test that presumption. 
 
 ```{r}
 library(janitor)
