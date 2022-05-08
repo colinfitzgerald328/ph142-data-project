@@ -20,14 +20,14 @@ The problem we are addressing with this data is the estimation of obesity levels
 
 We are trying to answer the question of whether there are specific factors within eating habits and physical conditions that leads to a higher levels of obesity. Some of these factors include frequent consumption of high caloric food, number of main meals, consumption of water daily, physical activity frequency, and transportation used. This question is a causative/etiologic question:
 
-Are there potential associations or trends within the eating habits and physical conditions of individuals of Mexico, Peru and Columbia that may have lead to higher levels of obesity in the respective countries?
+Are there potential associations or trends within the eating habits and physical conditions of individuals of Mexico, Peru and Colombia that may have lead to higher levels of obesity in the respective countries?
 
 \newpage
 
 2. [2 marks] What is the target population for your project? Why was this target chosen i.e., what was
 your rationale for wanting to answer this question in this specific population?
 
-The target population for this project are individuals from Mexico, Peru, and Columbia between the ages of 14 and 61 with diverse eating habits and physical conditions. 
+The target population for this project are individuals from Mexico, Peru, and Colombia between the ages of 14 and 61 with diverse eating habits and physical conditions. 
 
 The rationale for wanting to answer this question in this specific population is that  we want to study potential community or cultural factors that may have led to high obesity levels and be able to make a generalization of risk factors for these specific countries.
 
@@ -263,7 +263,7 @@ The above is a visualization of our confidence intervals, for the stratification
 
 \newpage
 
-The concept that we are demonstrating is finding a confidence interval. A confidence interval displays the probability that a parameter will fall between a pair of values around the mean. Specifically within our data, we found the confidence interval for our entire dataset and stratified our data by gender (male and female). Our confidence intervals specifically work to capture the mean height of obese males, females, and both in Mexico, Peru and Columbia. Based on our results, we found that the interval 1.697697 - 1.705658 (meters) has a 95% success rate in capturing within that interval the mean height µ of all obese males and females in Mexico, Peru and Columbia. After we stratified our data by gender we found that the interval 1.754362 - 1.763019 (meters) has a 95% success rate in capturing within that interval the mean height µ of obese males in Mexico, Peru and Columbia. We also found that the interval 1.638776 - 1.647820 (meters) has a 95% success rate in capturing within that interval the mean height µ of obese females in Mexico, Peru and Columbia. By conducting these confidence intervals, we found there to be a statistically significant difference in the true mean height of all 3 intervals due to there not being any overlap in confidence intervals. 
+The concept that we are demonstrating is finding a confidence interval. A confidence interval displays the probability that a parameter will fall between a pair of values around the mean. Specifically within our data, we found the confidence interval for our entire dataset and stratified our data by gender (male and female). Our confidence intervals specifically work to capture the mean height of obese males, females, and both in Mexico, Peru and Colombia. Based on our results, we found that the interval 1.697697 - 1.705658 (meters) has a 95% success rate in capturing within that interval the mean height µ of all obese males and females in Mexico, Peru and Colombia. After we stratified our data by gender we found that the interval 1.754362 - 1.763019 (meters) has a 95% success rate in capturing within that interval the mean height µ of obese males in Mexico, Peru and Colombia. We also found that the interval 1.638776 - 1.647820 (meters) has a 95% success rate in capturing within that interval the mean height µ of obese females in Mexico, Peru and Colombia. By conducting these confidence intervals, we found there to be a statistically significant difference in the true mean height of all 3 intervals due to there not being any overlap in confidence intervals. 
 
 \newpage
 
