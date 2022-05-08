@@ -280,7 +280,7 @@ The statistical test we plan to apply to our data is a chi-square test for indep
 3. [2 points] What assumptions are required by the method you chose in question 2? Show how you assessed whether these assumptions are met by your dataset. 
 
 
-An assumption that is required by the chi-squared test is to have performed a simple random sample to obtain the data. This data was collected by an online survey that may have not necessarily been random as we are prone to bias of response and nonresponse. Therefore this is not a complete random sample, but for this data project, we will continue with its use. Another assumption is that the variables are categorical and we made sure to choose 2 categorical variables. With the obesity data, we made sure not to use weight as the determining factor because that would be a continuous variable, but the obesity levels are categorical. The last assumption that our data met to proceed with this test is that the expected counts are at least 5 which we see to be the case in our expected table that we calculated. 
+1) An assumption that is required by the chi-squared test is to have performed a simple random sample to obtain the data. This data was collected by an online survey that may have not necessarily been random as we are prone to bias of response and nonresponse. Therefore this may not be a completely random sample; however, we are going to assume randomness for the purposes of this data project (further addressing the bias in later questions). 2) Another assumption is that the variables are categorical thus we made sure to choose 2 categorical variables - Obesity levels and Gender. With the obesity data, we made sure not to use weight as the determining factor since that is a continuous variable. Instead, we utilized the variable NObeyesdad, which attained obesity levels as categorical groups. 3) The last assumption for the chi-squared test, which our data met, is that the expected counts are at least 5. That can be clearly demonstrated in Table 3 of the Expected counts calculated that is presented in question 4.
 
 \newpage
 
@@ -290,13 +290,16 @@ An assumption that is required by the chi-squared test is to have performed a si
 
 A chi-square test for independence is appropriate for our data because we are using 2 categorical variables that are able to be counted easily. We are looking to see if there is a relationship between the two and this test would allow us to determine if there was one. We see with our data in the 2 way table that it is in good format for counts with a chi-squared test and visualization with a dodge bar chart. 
 
-
 ```{r}
 ggplot(obesity_data,aes(x = NObeyesdad, colour = Gender)) + 
   geom_bar(aes(y = ..count.., fill=Gender), alpha=0.5,position = "dodge") + 
   ggtitle("Barplot of Obesity Levels by Gender from Data Set") + theme(axis.text.x = element_text(angle = 45, hjust=1))
 ```
-Looking at the visualization, we can see that there appears to be a difference in the distribution of counts of obesity level by gender, which means a chi-squared test for independence would be appropriate to test that presumption. 
+```{r}
+ggplot(obesity_data,aes(x = NObeyesdad , colour = Gender))+ theme(axis.text.x = element_text(angle = 45, hjust=1)) +
+  geom_bar(aes(y = ..count.., fill=Gender, stat="identity")) + facet_grid(.~FAVC) 
+
+```
 
 ```{r}
 library(janitor)
@@ -340,7 +343,7 @@ pchisq(q=657.75, df=6, lower.tail = FALSE)
 
 7. [4 points] Present your results in a clear summary. This should include both a text summary and a table or figure with appropriate labeling. 
 
-Assuming no association between gender and obesity level (NObeyesdad), there is approximately a 0% chance of the chi-square value we calculated or a larger one. This probability is small enough that there is evidence in favor of the alternative hypothesis that there is a relationship between gender and obesity level (NObeyesdad).
+Assuming no association between gender and obesity, there is approximately a 0% chance of the chi-square value we calculated or a larger one. This probability is small enough that there is evidence in favor of the alternative hypothesis that there is a relationship between gender and obesity.
 
 Below we created a visualization of the distribution of each weight class by each gender. This table was created using the observed values in the survey.  
 
