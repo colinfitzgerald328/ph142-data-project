@@ -340,7 +340,7 @@ pchisq(q=657.75, df=6, lower.tail = FALSE)
 
 7. [4 points] Present your results in a clear summary. This should include both a text summary and a table or figure with appropriate labeling. 
 
-Assuming no association between gender and obesity, there is approximately a 0% chance of the chi-square value we calculated or a larger one. This probability is small enough that there is evidence in favor of the alternative hypothesis that there is a relationship between gender and obesity.
+Assuming no association between gender and obesity level (NObeyesdad), there is approximately a 0% chance of the chi-square value we calculated or a larger one. This probability is small enough that there is evidence in favor of the alternative hypothesis that there is a relationship between gender and obesity level (NObeyesdad).
 
 Below we created a visualization of the distribution of each weight class by each gender. This table was created using the observed values in the survey.  
 
