@@ -1,1 +1,1 @@
-# Data Project for PH142 at U.C. Berkeley
+# Data Project for PH142 (Introduction to Probability and Statistics in Biology and Public Health) at U.C. Berkeley
