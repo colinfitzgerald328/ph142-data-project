@@ -2,7 +2,7 @@ repo_name: colinfitzgerald328/ph142-data-project
 report_id: '068a0868effac5b1232fc80d756e6361'
 version: 0.1
 repo_type: Public
-timestamp: '2023-12-19T22:07:58+00:00'
+timestamp: '2024-01-05T08:19:49+00:00'
 requested_by: colinfitzgerald328
 provider: github
 branch: main
@@ -16,4 +16,5 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/colinfitzgerald328/ph142-data-project
   detection_source: Repo Metadata
